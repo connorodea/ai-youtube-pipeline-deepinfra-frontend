@@ -11,24 +11,22 @@ interface StatsCardProps {
 
 export const StatsCard = ({ title, value, icon: Icon, trend, trendUp }: StatsCardProps) => {
   return (
-    <Card className="relative overflow-hidden border-border bg-card hover:shadow-elegant transition-all duration-300 group">
-      <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      <div className="relative p-6">
+    <Card className="border border-border">
+      <div className="p-6">
         <div className="flex items-center justify-between">
-          <div className="space-y-1">
-            <p className="text-sm text-muted-foreground">{title}</p>
-            <p className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <div className="space-y-2">
+            <p className="text-sm text-muted-foreground font-medium">{title}</p>
+            <p className="text-3xl font-semibold text-foreground tracking-tight">
               {value}
             </p>
             {trend && (
-              <p className={`text-xs ${trendUp ? 'text-success' : 'text-destructive'}`}>
+              <p className={`text-xs font-medium ${trendUp ? 'text-success' : 'text-destructive'}`}>
                 {trend}
               </p>
             )}
           </div>
-          <div className="p-3 rounded-lg bg-gradient-primary">
-            <Icon className="h-6 w-6 text-primary-foreground" />
+          <div className="p-3 rounded-lg bg-muted">
+            <Icon className="h-5 w-5 text-foreground" />
           </div>
         </div>
       </div>

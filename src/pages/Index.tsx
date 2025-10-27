@@ -78,32 +78,31 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-gradient-subtle">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
-                🎬 AI YouTube Automation
+      <header className="border-b border-border bg-background">
+        <div className="container mx-auto px-6 py-8 max-w-7xl">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-1">
+              <h1 className="text-3xl font-semibold tracking-tight text-foreground">
+                AI YouTube Automation
               </h1>
               <p className="text-muted-foreground">
-                Multi-channel autonomous video generation powered by DeepInfra
+                Multi-channel autonomous video generation
               </p>
             </div>
             <Button
               onClick={handleGenerateAll}
               size="lg"
-              className="bg-gradient-secondary hover:shadow-glow transition-all duration-300"
             >
-              <Zap className="mr-2 h-5 w-5" />
-              Generate All Channels
+              <Zap className="mr-2 h-4 w-4" />
+              Generate All
             </Button>
           </div>
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-8 space-y-8">
+      <main className="container mx-auto px-6 py-12 max-w-7xl space-y-12">
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <StatsCard
             title="Total Videos"
             value={107}
@@ -119,7 +118,7 @@ const Index = () => {
             trendUp={true}
           />
           <StatsCard
-            title="Avg. Generation Time"
+            title="Avg. Time"
             value="8.5m"
             icon={Clock}
             trend="-2m faster"
@@ -127,22 +126,22 @@ const Index = () => {
           />
           <StatsCard
             title="Success Rate"
-            value="98.3%"
+            value="98%"
             icon={Zap}
-            trend="+1.2% this month"
+            trend="+1.2%"
             trendUp={true}
           />
         </div>
 
         {/* Channels Section */}
-        <section className="space-y-4">
+        <section className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-foreground">Channels</h2>
+            <h2 className="text-xl font-semibold text-foreground">Channels</h2>
             <span className="text-sm text-muted-foreground">
-              {channels.length} active channels
+              {channels.length} active
             </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {channels.map((channel) => (
               <ChannelCard key={channel.name} {...channel} />
             ))}
@@ -150,11 +149,11 @@ const Index = () => {
         </section>
 
         {/* Upload Logs Section */}
-        <section className="space-y-4">
+        <section className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-foreground">Upload Logs</h2>
+            <h2 className="text-xl font-semibold text-foreground">Upload Logs</h2>
             <span className="text-sm text-muted-foreground">
-              {uploads.length} recent uploads
+              {uploads.length} recent
             </span>
           </div>
           <UploadLogsTable uploads={uploads} />
